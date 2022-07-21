@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LOGIN</title>
+<link rel="stylesheet" href={% static 'ranking/ranking.css' %}>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+table, th, td {
+  border: 1px solid;
+}
+
+table {
+  width: 100%;
+}
+</style>
+
+</head>
+<body>
+  <h2>Student Rank Table</h2>
+
+  <table class="table">
+    <tr>
+      <th>Student_name</th>
+      <th>student_registration_number</th>
+
+      <th>Alocated_University</th>
+        <th>Alocated_Subject</th>
+      <th>position</th>
+      <th>score</th>
+    </tr>
+   {%for i in defined_university%}
+
+
+
+   <tr>
+
+     <td>{{i.ranking_username}}</td>
+     <td>{{i.ranking_registration_number}}</td>
+     <td>{{i.student_university}}</td>
+     <td>{{i.student_subject}}</td>
+     <td>{{forloop.counter}}</td>
+     <td>{{i.ranking_score}}</td>
+   </tr>
+
+      {%endfor%}
+
+
+
+
+
+  </table>
+
+</body>
+{%endblock%}

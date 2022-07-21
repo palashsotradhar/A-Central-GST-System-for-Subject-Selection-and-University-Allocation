@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LOGIN</title>
+<link rel="stylesheet" href={% static 'user_profile/user_profile.css' %}>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <a href="#">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+              </a>
+              <h1>Palash sotradhar</h1>
+              <p>palashsotradhar@theEmail.com</p>
+          </div>
+
+          <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
+              <li><a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
+              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="profile-info col-md-9">
+
+      <div class="panel">
+          <div class="bio-graph-heading">
+             Its your profile
+          </div>
+          <div class="panel-body bio-graph-info">
+              <h1>Bio Graph</h1>
+              <div class="row">
+                  <div class="bio-row">
+                      {%for profile_data in profile_data%}
+                      <p><span>First Name </span>: {{profile_data.ranking_username}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Last Name </span>: Sutradhar</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Country </span>: Bangladesh</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Birthday</span>: 11 March 1998</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Occupation </span>: Student</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Email </span>{{profile_data.student_email}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Uiversity </span>:  {{profile_data.student_university}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Subject </span>:  {{profile_data.student_subject}} </p>
+                  </div>
+                  {%endfor%}
+              </div>
+          </div>
+      </div>
+
+  </div>
+ <h2>Choice List</h2>
+<!--<div class="subject_name">-->
+   <!--{{subject_name}}-->
+    <!--</div>-->
+     <table class="table">
+    <tr>
+      <th>Subject_name</th>
+      <th>university_Name</th>
+
+    </tr>
+   {%for i in choise_list%}
+
+
+
+   <tr>
+
+     <td>{{i.subject_name}}</td>
+     <td>{{i.university_name}}</td>
+   </tr>
+
+      {%endfor%}
+
+
+
+
+
+  </table>
+</div>
+</div>
+</body>
+</html>
+{%endblock%}

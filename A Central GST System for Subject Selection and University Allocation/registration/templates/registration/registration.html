@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LOGIN</title>
+<link rel="stylesheet" href={% static 'registration/registration.css' %}>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+<form action="/registration/" method="post">{% csrf_token %}
+  <h2 class="text-center">Registration Form</h2>
+  <h2>Student Basic Information</h2>
+  <div class="form-group">
+    <label for="student">Student's Full Name *</label>
+    <input type="text" class="form-control" id="student_name" placeholder="Your name" name="student_name">
+  </div>
+  <h2>  Student Personal Information</h2>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="father">Father's Name *</label>
+      <input type="text" class="form-control" id="father_name" placeholder="Father's Name" name="father_name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="mother">Mother's Name *</label>
+      <input type="text" class="form-control" id="mother_name" placeholder="Mother's Name" name="mother_name">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="contactno">Student's Contact No. *</label>
+      <input type="number" class="form-control" placeholder="Contact No." required="required" name="student_contact">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="gardiancontactno">Parent's / Guardian's Contact No. *</label>
+        <input type="number" class="form-control" placeholder="Guardian's Contact No." required="required" name="parent_contact">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Student's E-mail *</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="student_email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="relation">Relationship with Guardian</label>
+      <input type="text" class="form-control" id="Relationship" placeholder="Relationship with Guardian" name="relation">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="presentaddress">Present Address *</label>
+      <input type="text" class="form-control" id="present_address" placeholder="Present Address" name="present_address">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="permanantaddress">Permanent Address *</label>
+      <input type="text" class="form-control" id="permanent_address" placeholder="Permanent Address " name="permanant_address">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="sscroll">District *</label>
+      <input type="text" class="form-control" id="district" name="district">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="sscroll">Upazila *</label>
+      <input type="text" class="form-control" id="upazila" name="upazila">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Postal Zip*</label>
+      <input type="text" class="form-control" id="inputZip" name="postal_zip">
+    </div>
+  </div>
+  <h2>Student Academic Information</h2>
+  <h4>SSC / Dakhil / Equivalent</h4>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="examname">SSC / Dakhil / Equivalent *</label>
+      <select id="sscexam_name" class="form-control" name="sscexam_name">
+        <option selected>Choose...</option>
+        <option>SSC</option>
+        <option>Dakhil</option>
+        <option>....</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="sscpassing_year">Passing Year *</label>
+      <input type="text" class="form-control" id="sscpassing_year" name="sscpassing_year">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="sscgpa">GPA *</label>
+      <input type="text" class="form-control" id="sscgpa" name="sscgpa">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="sscroll">SSC / Dakhil / Equivalent Roll Number *</label>
+      <input type="number" class="form-control" id="ssc_roll" name="ssc_roll">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="sscregistration">SSC / Dakhil / Equivalent Registration Number *</label>
+      <input type="number" class="form-control" id="ssc_registration" name="ssc_registration">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="sscroll">Board *</label>
+      <input type="text" class="form-control" id="sscboard" name="sscboard">
+    </div>
+
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="sscgroup">GROUP</label>
+      <select id="sscgroup" class="form-control" name="sscgroup">
+        <option selected>Choose...</option>
+        <option>Scinece</option>
+        <option>Humanities</option>
+        <option>Commerce</option>
+        <option>Engineering</option>
+      </select>
+    </div>
+
+  </div>
+  <h4>HSC / Diploma / Equivalent</h4>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="hscexamname">HSC / Diploma / Equivalent *</label>
+      <select id="hscexam_name" class="form-control" name="hscexam_name">
+        <option selected>Choose...</option>
+        <option>HSC</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="sscpassing_year">Passing Year *</label>
+      <input type="text" class="form-control" id="hscpassing_year" name="hscpassing_year">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="gpa">GPA *</label>
+      <input type="text" class="form-control" id="gpa" name="hscgpa">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="hscroll">HSC / Diploma / Equivalent Roll Number *</label>
+      <input type="number" class="form-control" id="hsc_roll" name="hsc_roll">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="hscregistration">HSC / Diploma / Equivalent Registration Number *</label>
+      <input type="number" class="form-control" id="hsc_registration" name="hsc_registration">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="hscboard">Board *</label>
+      <input type="text" class="form-control" id="hscboard" name="hscboard">
+    </div>
+
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="hscgroup">GROUP</label>
+      <select id="hsc_group" class="form-control" name="hsc_group">
+        <option selected>Choose...</option>
+        <option>Scinece</option>
+        <option>Humanities</option>
+        <option>Commerce</option>
+        <option>Engineering</option>
+      </select>
+    </div>
+
+  </div>
+  <!-- <div class="image">
+    <form action="/action_page.php">
+    <label for="img">Select image:</label>
+    <input type="file" id="img" name="img" accept="image/*">
+    <input type="submit">
+  </form>
+  <form action="/action_page.php">
+    <label for="img">Select signature:</label>
+    <input type="file" id="img" name="img" accept="image/*">
+    <input type="submit">
+  </form>
+
+  </div> -->
+
+
+  <!-- <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+</body>
+</html>
+</html>
+{%endblock%}
